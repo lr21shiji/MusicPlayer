@@ -10,7 +10,7 @@ import android.view.KeyEvent;
 /**
  * 处理媒体按键的广播接收器
  * 
- * @author lq 2013-6-1 lq2625304@gmail.com
+ * @author mh
  * */
 public class MediaButtonReceiver extends BroadcastReceiver {
 	private static final String TAG = MediaButtonReceiver.class.getSimpleName();

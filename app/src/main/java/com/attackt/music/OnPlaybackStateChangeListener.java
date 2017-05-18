@@ -4,7 +4,7 @@ package com.attackt.music;
 /**
  * 定义音乐回放时一系列状态变化时的回调接口
  *
- * @author lq 2013-6-1 lq2625304@gmail.com
+ * @author mh
  */
 public interface OnPlaybackStateChangeListener {
     /**
