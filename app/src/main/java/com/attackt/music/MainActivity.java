@@ -67,7 +67,7 @@ public class MainActivity extends BaseActivity {
         bean.setM4a("http://ws.stream.qqmusic.qq.com/1412315.m4a?fromtag=46");
         bean.setSongid(1);
         bean.setSongname("包容");
-        bean.setDuration(26500000);
+        bean.setDuration(265000);
         MusicData bean1 = new MusicData();
         bean1.setSongid(2);
         bean1.setM4a("http://ws.stream.qqmusic.qq.com/172019.m4a?fromtag=46");
