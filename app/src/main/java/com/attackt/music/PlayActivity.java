@@ -5,22 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
-import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
-
-public class PlayActivity extends AppCompatActivity implements SeekBar.OnSeekBarChangeListener, View.OnClickListener {
+public class PlayActivity extends BaseActivity implements SeekBar.OnSeekBarChangeListener, View.OnClickListener {
 
     TextView close;
     ImageView play;
@@ -63,7 +58,15 @@ public class PlayActivity extends AppCompatActivity implements SeekBar.OnSeekBar
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉标题栏
         setContentView(R.layout.activity_play);
+        Window win = this.getWindow();
+        WindowManager.LayoutParams lp = win.getAttributes();
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        win.setAttributes(lp);
+        win.setGravity(Gravity.TOP);
+
         close = (TextView) findViewById(R.id.close);
         play = (ImageView) findViewById(R.id.play);
         back = (RelativeLayout) findViewById(R.id.back);
@@ -184,6 +187,8 @@ public class PlayActivity extends AppCompatActivity implements SeekBar.OnSeekBar
                 mIntent.setPackage(getPackageName());
                 startService(mIntent);
                 finish();
+                stopService(new Intent(PlayActivity.this, FloatViewService.class));
+                MyApplication.show = false;
                 break;
             case R.id.next:
                 mIntent = new Intent();

@@ -17,7 +17,7 @@ public class MediaUtils {
 
         if (hours > 0) {
             finalTimerString = String.format(Locale.getDefault(),
-                    "%02d%02d:%02d", hours, minutes, seconds);
+                    "%02d:%02d:%02d", hours, minutes, seconds);
         } else {
             finalTimerString = String.format(Locale.getDefault(), "%02d:%02d",
                     minutes, seconds);
